@@ -12,7 +12,7 @@ This is the official implementation of our conference paper : Tailoring Instruct
 ### Installation
 1. Clone the repository
     ```sh
-    git clone https://github.com/Harry-zzh/LGTM.git
+    git clone https://github.com/twinkle0331/LGTM.git
     ```
 2. Install the dependencies
     ```sh
