@@ -1,5 +1,5 @@
 # LGTM
-This is the official implementation of our conference paper : Tailoring Instructions to Student’s Learning Levels Boosts Knowledge Distillation (ACL 2023).
+✨ This is the official implementation of our conference paper : Tailoring Instructions to Student’s Learning Levels Boosts Knowledge Distillation (ACL 2023).
 
 ## Introduction
 ### Tab of Content
