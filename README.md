@@ -33,16 +33,16 @@
     python run_glue.py \
         --model_name_or_path google/bert_uncased_L-6_H-768_A-12 \
         --teacher_model bert-base-uncased \
-        --task_name sst2 \
+        --task_name mnli \
         --per_device_train_batch_size 32 \
         --per_device_eval_batch_size 32 \
-        --learning_rate 5e-05 \
+        --learning_rate 3e-05 \
         --t_learning_rate 3e-05 \
         --alpha_kd 1.0 \
         --temperature 1.0 \
         --num_train_epochs 6 \
         --output_dir <out_dir> \
-        --eval_steps 40 \
+        --eval_steps 1000 \
         --do_train \
         --do_eval \
         --train_teacher \
@@ -53,7 +53,7 @@
     ```sh
     python run_glue.py \
         --model_name_or_path <checkpoint_path> \
-        --task_name sst2 \
+        --task_name mnli \
         --per_device_eval_batch_size 32 \
         --output_dir <predict_out_dir> \
         --do_predict
