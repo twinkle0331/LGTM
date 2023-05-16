@@ -2,17 +2,26 @@
 ✨ This is the official implementation of our conference paper : Tailoring Instructions to Student’s Learning Levels Boosts Knowledge Distillation (ACL 2023).
 
 ## Introduction
+
+We introduce the concept of distillation influence to determine the impact of distillation from each training sample on the student's generalization ability. 
+In this paper, we propose **L**earning **G**ood **T**eacher **M**atters (LGTM), an efficient training technique for incorporating distillation influence into the teacher’s learning process. 
+By prioritizing samples that are likely to enhance the student's generalization ability, our LGTM outperforms 10 common knowledge distillation baselines on 6 text classification tasks in the GLUE benchmark.
+
+![](resources/lgtm.png)
+
 ### Tab of Content
 - [Installation](#1)
 - [Usage](#2)
   - [Training](#3)
-  <!-- - [Evaluation](#4) -->
   - [Inference](#4)
+- [Results](#5)
+
+<span id="1"></span>
 
 ### Installation
 1. Clone the repository
     ```sh
-    git clone https://github.com/twinkle0331/LGTM.git
+    git clone https://github.com/Harry-zzh/LGTM.git
     ```
 2. Install the dependencies
     ```sh
@@ -26,8 +35,12 @@
 
     pip install -r requirements.txt
     ```
+<span id="2"></span>
 
 ### Usage
+
+<span id="3"></span>
+
 - #### Training
     ```sh
     python run_glue.py \
@@ -36,7 +49,7 @@
         --task_name mnli \
         --per_device_train_batch_size 32 \
         --per_device_eval_batch_size 32 \
-        --learning_rate 3e-05 \
+        --learning_rate 3e-05 \ # {3e-05,5e-05,1e-04}
         --t_learning_rate 3e-05 \
         --alpha_kd 1.0 \
         --temperature 1.0 \
@@ -49,6 +62,17 @@
         --init_classifier_to_zero \
         --use_lgtm
     ```
+
+    Hint: You can refer to some baselines using different settings:
+
+    | Model | Setting                                              |
+    | ----- | ---------------------------------------------------- |
+    | KD    | (None)                                               |
+    | Prokt | --init_classifier_as_zero --train_teacher            |
+    | LGTM  | --init_classifier_as_zero --train_teacher --use_lgtm |
+
+<span id="4"></span>
+
 - #### Inference
     ```sh
     python run_glue.py \
@@ -60,8 +84,19 @@
     ```
     You can get the prediction files for each task and submit them into the GLUE test benchmark.
 
+<span id="5"></span>
+
+### Results
+
+We give some results on validation set.
+
+| Task          | Dev       |
+| ------------- | --------- |
+| MNLI (Acc.)   | 83.4      |
+| QQP (F1/Acc.) | 91.1/88.0 |
+
 ### License
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the Apache 2.0 license. See LICENSE for more information.
 
 ### Cite 
 
