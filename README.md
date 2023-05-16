@@ -99,5 +99,12 @@ We give some results on validation set.
 Distributed under the Apache 2.0 license. See LICENSE for more information.
 
 ### Cite 
-
 If you find it helpful, you can cite our paper in your work.
+```sh
+@inproceedings{ren2023tailoring,
+  title={Tailoring Instructions to Student's Learning Levels Boosts Knowledge Distillation},
+  author={Ren, Yuxin and Zhong, Zihan and Shi, Xingjian and Zhu,Yi and Chun,Yuan and Mu,Li},
+  booktitle={Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics},
+  year={2023}
+}
+ ```
