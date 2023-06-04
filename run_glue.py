@@ -295,7 +295,7 @@ def main():
         model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
     accelerator = Accelerator()
-
+    os.makedirs(training_args.output_dir, exist_ok=True)
     # Setup logging
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
